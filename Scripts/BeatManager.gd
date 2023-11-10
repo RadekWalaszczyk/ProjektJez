@@ -23,6 +23,7 @@ signal measure_signal(position)
 
 func _ready():
 	sec_per_beat = 60.0 / bpm
+	play_from_beat(12, 0)
 
 
 func _physics_process(_delta):
@@ -51,9 +52,8 @@ func play_with_beat_offset(num):
 
 func time_to_closest_beat() -> Vector2:
 	closest = int(round((song_position / sec_per_beat) / song_position_in_beats) * song_position_in_beats) 
-	time_off_beat = abs(closest * sec_per_beat - song_position)
-	print(song_position_in_beats)
-	return Vector2(closest, time_off_beat)
+	time_off_beat = abs(song_position_in_beats * sec_per_beat - song_position)
+	return Vector2(song_position_in_beats, time_off_beat)
 
 
 func play_from_beat(beat, offset):

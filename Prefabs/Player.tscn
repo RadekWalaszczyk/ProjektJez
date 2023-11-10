@@ -36,7 +36,7 @@ FollowTime = 5.0
 
 [node name="SpellController" type="Node" parent="." node_paths=PackedStringArray("Beat")]
 script = ExtResource("3_ynroj")
-BeatMargin = 0.35
+BeatMargin = 0.1
 Beat = NodePath("../BeatManager")
 
 [node name="DebugBeat" type="TextureRect" parent="SpellController"]
@@ -48,7 +48,6 @@ texture = ExtResource("4_xoeax")
 
 [node name="BeatManager" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_cgpye")
-autoplay = true
 script = ExtResource("4_58vux")
 bpm = 135
 
