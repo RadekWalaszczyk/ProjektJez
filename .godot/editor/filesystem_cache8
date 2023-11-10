@@ -1,0 +1,8 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1699625790
+icon.svg::CompressedTexture2D::437647093798615455::1699622767::1699622772::1::::<><>::
+::res://Scenes/::1699625855
+test_scene.tscn::PackedScene::5013739813465460142::1699625892::0::1::::<><>::res://Scripts/PlayerController.gd<>res://Scripts/CameraController.gd
+::res://Scripts/::1699625833
+PlayerController.gd::GDScript::-1::1699625564::0::1::::<>CharacterBody3D<>::
+CameraController.gd::GDScript::-1::1699625833::0::1::::<>Camera3D<>::

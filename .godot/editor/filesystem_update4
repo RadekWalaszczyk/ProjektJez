@@ -1,0 +1,4 @@
+res://Scenes/test_scene.tscn
+res://PlayerController.gd
+res://Scripts/CameraController.gd
+res://Prefabs/Player.tscn
