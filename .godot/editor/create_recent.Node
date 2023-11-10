@@ -1,6 +1,10 @@
+Timer
+AudioStreamPlayer2D
+AudioStreamPlayer3D
+Node
+TextureRect
 Camera3D
 CollisionShape3D
 CharacterBody3D
 Node3D
 MeshInstance3D
-Node

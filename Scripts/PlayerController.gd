@@ -1,19 +1,18 @@
 extends CharacterBody3D
 
-@export var MaxSpeed : float = 400
-@export var Acceleration : float = 1500
-@export var Friction : float = 600
+@export var MaxSpeed : float = 20
+@export var Acceleration : float = 100
+@export var Friction : float = 80
 
 var input : Vector3 = Vector3.ZERO
+
+func _physics_process(delta):
+	PlayerMovement(delta)
 
 func GetInput() -> Vector3:
 	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y))
 	return direction.normalized()
-
-func _physics_process(delta):
-	PlayerMovement(delta)
-	pass
 
 func PlayerMovement(delta : float):
 	input = GetInput()

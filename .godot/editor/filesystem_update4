@@ -2,3 +2,7 @@ res://Scenes/test_scene.tscn
 res://PlayerController.gd
 res://Scripts/CameraController.gd
 res://Prefabs/Player.tscn
+res://Scripts/PlayerController.gd
+res://BeatManager.gd
+res://Scripts/SpellController.gd
+res://Scripts/BeatManager.gd
