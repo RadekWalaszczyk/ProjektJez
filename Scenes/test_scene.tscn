@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdoxtd6fdimqo"]
+[gd_scene load_steps=8 format=3 uid="uid://cdoxtd6fdimqo"]
 
 [ext_resource type="PackedScene" uid="uid://cjt64ue20a5f1" path="res://Prefabs/Player.tscn" id="1_buah7"]
 
@@ -15,6 +15,10 @@ sky = SubResource("Sky_evo5n")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="BoxMesh" id="BoxMesh_pwajn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2tte3"]
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_r3bhg"]
 
 [node name="TestScene" type="Node3D"]
@@ -25,6 +29,45 @@ environment = SubResource("Environment_b8c5t")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
+
+[node name="Enemek" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.42551, 0, 0, 0, 2.45127, 0, 0, 0, 3.03035, 0, 0, -5.606)
+mesh = SubResource("BoxMesh_pwajn")
+skeleton = NodePath("../Ground")
+
+[node name="Area3D" type="Area3D" parent="Enemek"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemek/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_2tte3")
+
+[node name="Enemek2" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.42551, 0, 0, 0, 2.45127, 0, 0, 0, 3.03035, 6.738, 0, 5.41088)
+mesh = SubResource("BoxMesh_pwajn")
+skeleton = NodePath("../Ground")
+
+[node name="Area3D" type="Area3D" parent="Enemek2"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemek2/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_2tte3")
+
+[node name="Enemek3" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.42551, 0, 0, 0, 2.45127, 0, 0, 0, 3.03035, -17.2138, 0, 5.41088)
+mesh = SubResource("BoxMesh_pwajn")
+skeleton = NodePath("../Ground")
+
+[node name="Area3D" type="Area3D" parent="Enemek3"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemek3/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_2tte3")
 
 [node name="Ground" type="MeshInstance3D" parent="."]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)

@@ -1,6 +1,4 @@
-res://Prefabs/Player.tscn
-res://Scenes/test_scene.tscn
-res://Scripts/SpellController.gd
-res://Scenes/BasicTemporarySpell.gd
 res://Prefabs/Spells/SpellTemporary.tscn
-res://Scripts/BeatManager.gd
+res://Scenes/BasicTemporarySpell.gd
+res://Scenes/test_scene.tscn
+res://Prefabs/Player.tscn
