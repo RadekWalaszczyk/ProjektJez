@@ -52,6 +52,9 @@ func play_with_beat_offset(num):
 func time_to_closest_beat() -> Vector2:
 	closest = int(round((song_position / sec_per_beat) / song_position_in_beats) * song_position_in_beats) 
 	time_off_beat = abs(song_position_in_beats * sec_per_beat - song_position)
+	var time_off_beat2 = abs((song_position_in_beats - 1) * sec_per_beat - song_position)
+	if time_off_beat > time_off_beat2:
+		time_off_beat = time_off_beat2
 	return Vector2(song_position_in_beats, time_off_beat)
 
 

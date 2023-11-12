@@ -1,9 +1,11 @@
-res://Prefabs/Spells/SpellTemporary.tscn
-res://Scenes/BasicTemporarySpell.gd
 res://Scenes/test_scene.tscn
 res://Prefabs/Player.tscn
-res://Scripts/PlayerController.gd
+res://Prefabs/Spells/SpellTemporary.tscn
+res://Prefabs/Enemy.tscn
 res://Scripts/EnemyTemporary.gd
 res://Scripts/BasicTemporarySpell.gd
-res://Prefabs/EnemyTemporary.tscn
-res://Prefabs/Enemy.tscn
+res://Prefabs/Spells/SpellAOETemp.tscn
+res://Scripts/SpellController.gd
+res://Prefabs/Spells/SpellAOEComboTemp.tscn
+res://Scripts/BeatManager.gd
+res://Scripts/EnemySpawnerTemp.gd
