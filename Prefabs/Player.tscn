@@ -8,9 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://gh88pfdp6dlv" path="res://icon.svg" id="4_xoeax"]
 [ext_resource type="AudioStream" uid="uid://bc7ugctiq70x4" path="res://Music/1-Trillion-BPM-_beats-per-minute_-Experiment.mp3" id="5_jstij"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_md0lt"]
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sp17g"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_md0lt"]
 
 [node name="Player" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.66996, 0)
@@ -18,17 +18,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.66996, 0)
 [node name="PlayerController" type="CharacterBody3D" parent="."]
 script = ExtResource("1_dyoh4")
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerController"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.40155, 0)
+shape = SubResource("CapsuleShape3D_sp17g")
+
 [node name="PlayerBody" type="MeshInstance3D" parent="PlayerController"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
 mesh = SubResource("CapsuleMesh_md0lt")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerController"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00684, 0)
-shape = SubResource("CapsuleShape3D_sp17g")
-
 [node name="CameraController" type="Camera3D" parent="." node_paths=PackedStringArray("PlayerToFollow")]
-transform = Transform3D(1, 0, 0, 0, 0.815461, 0.578812, 0, -0.578812, 0.815461, -0.258678, 6.83637, 7.43828)
+transform = Transform3D(1, 0, 0, 0, 0.723895, 0.689911, 0, -0.689911, 0.723895, -0.258678, 9.45822, 5.90488)
 fov = 90.0
 script = ExtResource("2_rb82a")
 PlayerToFollow = NodePath("../PlayerController")

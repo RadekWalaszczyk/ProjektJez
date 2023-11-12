@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cdoxtd6fdimqo"]
+[gd_scene load_steps=7 format=3 uid="uid://cdoxtd6fdimqo"]
 
 [ext_resource type="PackedScene" uid="uid://cjt64ue20a5f1" path="res://Prefabs/Player.tscn" id="1_buah7"]
+[ext_resource type="PackedScene" uid="uid://03an3wx3hf2" path="res://Prefabs/Enemy.tscn" id="2_f43qh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uhq63"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -15,10 +16,6 @@ sky = SubResource("Sky_evo5n")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="BoxMesh" id="BoxMesh_pwajn"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_2tte3"]
-
 [sub_resource type="PlaneMesh" id="PlaneMesh_r3bhg"]
 
 [node name="TestScene" type="Node3D"]
@@ -30,47 +27,140 @@ environment = SubResource("Environment_b8c5t")
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Enemek" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.42551, 0, 0, 0, 2.45127, 0, 0, 0, 3.03035, 0, 0, -5.606)
-mesh = SubResource("BoxMesh_pwajn")
-skeleton = NodePath("../Ground")
-
-[node name="Area3D" type="Area3D" parent="Enemek"]
-collision_layer = 2
-collision_mask = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemek/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-shape = SubResource("BoxShape3D_2tte3")
-
-[node name="Enemek2" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.42551, 0, 0, 0, 2.45127, 0, 0, 0, 3.03035, 6.738, 0, 5.41088)
-mesh = SubResource("BoxMesh_pwajn")
-skeleton = NodePath("../Ground")
-
-[node name="Area3D" type="Area3D" parent="Enemek2"]
-collision_layer = 2
-collision_mask = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemek2/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-shape = SubResource("BoxShape3D_2tte3")
-
-[node name="Enemek3" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.42551, 0, 0, 0, 2.45127, 0, 0, 0, 3.03035, -17.2138, 0, 5.41088)
-mesh = SubResource("BoxMesh_pwajn")
-skeleton = NodePath("../Ground")
-
-[node name="Area3D" type="Area3D" parent="Enemek3"]
-collision_layer = 2
-collision_mask = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemek3/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-shape = SubResource("BoxShape3D_2tte3")
-
 [node name="Ground" type="MeshInstance3D" parent="."]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 mesh = SubResource("PlaneMesh_r3bhg")
 
 [node name="Player" parent="." instance=ExtResource("1_buah7")]
+
+[node name="Enemy2" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.2461, 0.945802, 5.29203)
+
+[node name="Enemy3" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.7791, 0.945802, -3.34264)
+
+[node name="Enemy7" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.251, 0.945802, 22.5848)
+
+[node name="Enemy8" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.784, 0.945802, 13.9501)
+
+[node name="Enemy11" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0145, 0.945802, 20.1739)
+
+[node name="Enemy12" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01424, 0.945802, 25.6199)
+
+[node name="Enemy14" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0658, 0.945802, 16.8778)
+
+[node name="Enemy16" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.3543, 0.945802, 6.58277)
+
+[node name="Enemy17" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.354, 0.945802, 12.0287)
+
+[node name="Enemy18" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.821, 0.945802, 3.39405)
+
+[node name="Enemy21" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.8452, 0.945806, -15.5712)
+
+[node name="Enemy23" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3118, 0.945806, -18.7599)
+
+[node name="Enemy24" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.7648, 0.945806, -18.8672)
+
+[node name="Enemy27" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.63111, 0.945802, -18.0745)
+
+[node name="Enemy28" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.09808, 0.945802, -26.7092)
+
+[node name="Enemy29" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.44894, 0.945802, -26.8165)
+
+[node name="Enemy32" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.9225, 0.945802, -16.2387)
+
+[node name="Enemy33" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.4556, 0.945802, -24.8733)
+
+[node name="Enemy34" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.0026, 0.945802, -24.9807)
+
+[node name="Enemy35" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.7708, 0.945804, -16.0913)
+
+[node name="Enemy36" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.3538, 0.945802, 5.31093)
+
+[node name="Enemy37" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.3541, 0.945802, 10.7569)
+
+[node name="Enemy38" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.8871, 0.945802, 2.12221)
+
+[node name="Enemy39" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.4341, 0.945802, 2.01488)
+
+[node name="Enemy40" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.2023, 0.945804, 10.9042)
+
+[node name="Enemy41" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.0449, 0.945802, 32.1662)
+
+[node name="Enemy42" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.0452, 0.945802, 37.6122)
+
+[node name="Enemy43" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.5782, 0.945802, 28.9775)
+
+[node name="Enemy44" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.1253, 0.945802, 28.8702)
+
+[node name="Enemy45" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.8934, 0.945804, 37.7595)
+
+[node name="Enemy46" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.19331, 0.945802, 54.5236)
+
+[node name="Enemy47" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.19302, 0.945802, 59.9695)
+
+[node name="Enemy49" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.88702, 0.945802, 51.2275)
+
+[node name="Enemy50" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.65521, 0.945804, 60.1169)
+
+[node name="Enemy51" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.7749, 0.945802, 15.5415)
+
+[node name="Enemy52" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.7746, 0.945802, 20.9874)
+
+[node name="Enemy53" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.2415, 0.945802, 12.3527)
+
+[node name="Enemy54" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.6945, 0.945802, 12.2454)
+
+[node name="Enemy55" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.9263, 0.945804, 21.1347)
+
+[node name="Enemy56" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.0565, 0.945802, -65.4229)
+
+[node name="Enemy57" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.0562, 0.945802, -59.9769)
+
+[node name="Enemy58" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.5232, 0.945802, -68.6116)
+
+[node name="Enemy59" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.9762, 0.945802, -68.7189)
+
+[node name="Enemy60" parent="." instance=ExtResource("2_f43qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.208, 0.945804, -59.8296)

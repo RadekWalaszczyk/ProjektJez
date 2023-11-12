@@ -19,5 +19,8 @@ func _physics_process(delta):
 
 
 func _on_hit_collider_area_entered(area: Area3D):
+	var enemy = area.get_parent() as EnemyTemporary
+	if enemy != null:
+		enemy.GetDamage()
 	queue_free()
 	pass

@@ -1,8 +1,9 @@
 CollisionShape3D
-Area3D
+RigidBody3D
 MeshInstance3D
-ShapeCast3D
 Node3D
+Area3D
+ShapeCast3D
 Timer
 AudioStreamPlayer2D
 AudioStreamPlayer3D

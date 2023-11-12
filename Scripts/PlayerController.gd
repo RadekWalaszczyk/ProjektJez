@@ -27,3 +27,4 @@ func PlayerMovement(delta : float):
 		velocity = velocity.limit_length(MaxSpeed)
 	move_and_slide()
 
+
