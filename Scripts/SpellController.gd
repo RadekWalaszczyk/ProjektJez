@@ -1,15 +1,15 @@
 extends Node
 
-@export_range(0.1, 0.5) var BeatMargin : float
 @export var Beat : BeatManager
+@export_range(0.1, 0.5) var BeatMargin : float
+@export var BasicSpells : Array[PackedScene]
 
-@export var Spell : PackedScene
-@export var SpellMine : PackedScene
-@export var SpellCombo : PackedScene
+# U - górny spell - 0
+# R - prawy spell - 1
+# D - dolny spell - 2
+# L - lewy spell  - 3
 
-var combo : Array[String] = ["L", "U", "U", "L"]
 var currCombo : Array[String]
-
 var currentBeat = 0
 
 func _ready():
@@ -26,37 +26,38 @@ func SpellCaster():
 		$DebugBeat.self_modulate = Color(0.2, 0.2, 0.2)
 	
 	var isInBeat = beat.y <= BeatMargin and currentBeat != beat.x
-	
+
 	if Input.is_action_just_pressed("SpellUp"):
-		print(beat.y)
 		if isInBeat:
-			currentBeat = beat.x
-			var newSpell = Spell.instantiate()
-			add_sibling(newSpell)
-			newSpell.global_position = $"../PlayerController".global_position
-			newSpell.global_rotation = $"../PlayerController".global_rotation
-			BuildCombo("U")
+			CastSpell("U", beat.x, 0)
 		else:
 			currCombo.clear()
-	
-	if Input.is_action_just_pressed("SpellLeft"):
-		print(beat.y)
+			
+	if Input.is_action_just_pressed("SpellRight"):
 		if isInBeat:
-			currentBeat = beat.x
-			var newSpell = SpellMine.instantiate()
-			add_sibling(newSpell)
-			newSpell.global_position = $"../PlayerController".global_position
-			newSpell.global_rotation = $"../PlayerController".global_rotation
-			BuildCombo("L")
+			CastSpell("R", beat.x, 1)
 		else:
 			currCombo.clear()
 
-func BuildCombo(currInput : String):
+	if Input.is_action_just_pressed("SpellDown"):
+		if isInBeat:
+			CastSpell("D", beat.x, 2)
+		else:
+			currCombo.clear()
+			
+	if Input.is_action_just_pressed("SpellLeft"):
+		if isInBeat:
+			CastSpell("L", beat.x, 3)
+		else:
+			currCombo.clear()
+
+func CastSpell(currInput : String, beat : int, spell : int):
+	var newSpell = BasicSpells[spell].instantiate()
+	get_tree().root.add_child(newSpell)
+	newSpell.global_position = $"../PlayerController".global_position
+	
+	currentBeat = beat
 	currCombo.push_front(currInput)
 	currCombo.resize(4)
-	if currCombo == combo:
-		var newSpell = SpellCombo.instantiate()
-		add_sibling(newSpell)
-		newSpell.global_position = $"../PlayerController".global_position
-		newSpell.global_rotation = $"../PlayerController".global_rotation
-		currCombo.clear()
+
+	currCombo.clear()

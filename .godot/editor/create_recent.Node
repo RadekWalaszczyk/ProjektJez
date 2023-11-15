@@ -1,9 +1,9 @@
-Timer
-Node3D
 CollisionShape3D
+Area3D
+Node3D
+Timer
 RigidBody3D
 MeshInstance3D
-Area3D
 ShapeCast3D
 AudioStreamPlayer2D
 AudioStreamPlayer3D

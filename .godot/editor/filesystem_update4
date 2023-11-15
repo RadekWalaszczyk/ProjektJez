@@ -1,11 +1,4 @@
-res://Scenes/test_scene.tscn
+res://Prefabs/SpellsBasic/SpellBasic.tscn
+res://Scripts/SpellMoving.gd
 res://Prefabs/Player.tscn
-res://Prefabs/Spells/SpellTemporary.tscn
-res://Prefabs/Enemy.tscn
-res://Scripts/EnemyTemporary.gd
-res://Scripts/BasicTemporarySpell.gd
-res://Prefabs/Spells/SpellAOETemp.tscn
-res://Scripts/SpellController.gd
-res://Prefabs/Spells/SpellAOEComboTemp.tscn
-res://Scripts/BeatManager.gd
-res://Scripts/EnemySpawnerTemp.gd
+res://Scenes/test_scene.tscn
