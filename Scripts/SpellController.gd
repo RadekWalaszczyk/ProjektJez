@@ -2,7 +2,6 @@ extends Node
 
 @export var Beat : BeatManager
 @export_range(0.1, 0.5) var BeatMargin : float
-@export var BasicSpells : Array[PackedScene]
 
 # U - górny spell - 0
 # R - prawy spell - 1
@@ -52,9 +51,9 @@ func SpellCaster():
 			currCombo.clear()
 
 func CastSpell(currInput : String, beat : int, spell : int):
-	var newSpell = BasicSpells[spell].instantiate()
-	get_tree().root.add_child(newSpell)
-	newSpell.global_position = $"../PlayerController".global_position
+	#var newSpell = BasicSpells[spell].instantiate()
+	#get_tree().root.add_child(newSpell)
+	#newSpell.global_position = $"../PlayerController".global_position
 	
 	currentBeat = beat
 	currCombo.push_front(currInput)
