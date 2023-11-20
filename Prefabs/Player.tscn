@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cjt64ue20a5f1"]
+[gd_scene load_steps=10 format=3 uid="uid://cjt64ue20a5f1"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerController.gd" id="1_dyoh4"]
 [ext_resource type="Script" path="res://Scripts/CameraController.gd" id="2_rb82a"]
 [ext_resource type="Script" path="res://Scripts/SpellController.gd" id="3_ynroj"]
 [ext_resource type="Script" path="res://Scripts/BeatManager.gd" id="4_58vux"]
-[ext_resource type="PackedScene" uid="uid://c5wsxgtgqh6m2" path="res://Prefabs/SpellsBasic/SpellBasic.tscn" id="4_ghpdn"]
 [ext_resource type="Texture2D" uid="uid://gh88pfdp6dlv" path="res://icon.svg" id="4_xoeax"]
 [ext_resource type="AudioStream" uid="uid://bc7ugctiq70x4" path="res://Music/1-Trillion-BPM-_beats-per-minute_-Experiment.mp3" id="5_jstij"]
 [ext_resource type="Script" path="res://Scripts/EnemySpawnerTemp.gd" id="10_sw5ne"]
@@ -40,7 +39,6 @@ FollowTime = 5.0
 script = ExtResource("3_ynroj")
 Beat = NodePath("../BeatManager")
 BeatMargin = 0.25
-BasicSpells = Array[PackedScene]([ExtResource("4_ghpdn"), ExtResource("4_ghpdn"), ExtResource("4_ghpdn"), ExtResource("4_ghpdn")])
 
 [node name="DebugBeat" type="TextureRect" parent="SpellController"]
 offset_left = 529.0

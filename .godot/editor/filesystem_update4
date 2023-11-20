@@ -1,3 +1,4 @@
 res://Scenes/test_scene.tscn
-res://Scripts/SpellCombo.gd
-res://Database/ComboSequences/BasicCombo.tres
+res://Scripts/SpellController.gd
+res://Prefabs/Player.tscn
+res://Prefabs/SpellsBasic/SpellBasic.tscn

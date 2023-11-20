@@ -8,10 +8,13 @@ extends Node
 # D - dolny spell - 2
 # L - lewy spell  - 3
 
+var allCombos : Array[SpellCombo]
+
 var currCombo : Array[String]
 var currentBeat = 0
 
 func _ready():
+	LoadAllCombos()
 	$DebugBeat.self_modulate = Color(0.2, 0.2, 0.2)
 
 func _process(delta):
@@ -28,29 +31,29 @@ func SpellCaster():
 
 	if Input.is_action_just_pressed("SpellUp"):
 		if isInBeat:
-			CastSpell("U", beat.x, 0)
+			CastSpell(SpellCombo.Spells.UP, beat.x)
 		else:
 			currCombo.clear()
 			
 	if Input.is_action_just_pressed("SpellRight"):
 		if isInBeat:
-			CastSpell("R", beat.x, 1)
+			CastSpell(SpellCombo.Spells.RIGHT, beat.x)
 		else:
 			currCombo.clear()
 
 	if Input.is_action_just_pressed("SpellDown"):
 		if isInBeat:
-			CastSpell("D", beat.x, 2)
+			CastSpell(SpellCombo.Spells.DOWN, beat.x)
 		else:
 			currCombo.clear()
 			
 	if Input.is_action_just_pressed("SpellLeft"):
 		if isInBeat:
-			CastSpell("L", beat.x, 3)
+			CastSpell(SpellCombo.Spells.LEFT, beat.x)
 		else:
 			currCombo.clear()
 
-func CastSpell(currInput : String, beat : int, spell : int):
+func CastSpell(currInput : SpellCombo.Spells, beat : int):
 	#var newSpell = BasicSpells[spell].instantiate()
 	#get_tree().root.add_child(newSpell)
 	#newSpell.global_position = $"../PlayerController".global_position
@@ -60,3 +63,21 @@ func CastSpell(currInput : String, beat : int, spell : int):
 	currCombo.resize(4)
 
 	currCombo.clear()
+
+func LoadAllCombos():
+	var path = "res://Database/ComboSequences/"
+	var dir = DirAccess.open(path)
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if dir.current_is_dir():
+				print("Found directory: " + file_name)
+			else:
+				var newFile = load(path + file_name)
+				if newFile is SpellCombo:
+					allCombos.append(newFile)
+				#print("Found file: " + file_name)
+			file_name = dir.get_next()
+	else:
+		print("An error occurred when trying to access the path.")
