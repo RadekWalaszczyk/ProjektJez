@@ -10,7 +10,7 @@ extends Node
 
 var allCombos : Array[SpellCombo]
 
-var currCombo : Array[String]
+var currCombo : Array[SpellCombo.Spells]
 var currentBeat = 0
 
 func _ready():
