@@ -1,12 +1,19 @@
+<<<<<<< HEAD
 [gd_scene load_steps=25 format=3 uid="uid://cdoxtd6fdimqo"]
+=======
+[gd_scene load_steps=6 format=3 uid="uid://cdoxtd6fdimqo"]
+>>>>>>> 7ec17bc4c7cbba98b1981eda2f9a31db6f7b04e6
 
 [ext_resource type="Shader" uid="uid://crkxounx55e4s" path="res://Shaders/FireShader.tres" id="1_2a0jv"]
 [ext_resource type="PackedScene" uid="uid://cjt64ue20a5f1" path="res://Prefabs/Player.tscn" id="1_buah7"]
+<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://03an3wx3hf2" path="res://Prefabs/Enemy.tscn" id="2_f43qh"]
 [ext_resource type="Texture2D" uid="uid://cfsblvymm56dr" path="res://Textures/RidgedPerlinNoise.png" id="2_krn7n"]
 [ext_resource type="Texture2D" uid="uid://bsnhwpoia4txw" path="res://Textures/Flame01.png" id="3_w5fpu"]
 [ext_resource type="Shader" uid="uid://dcao46d3rokwq" path="res://VFX/Assets/Shader/UV_Scroll.tres" id="6_i0tlc"]
 [ext_resource type="Texture2D" uid="uid://bbp7aj5kfc8mv" path="res://Textures/blob.png" id="7_yysgr"]
+=======
+>>>>>>> 7ec17bc4c7cbba98b1981eda2f9a31db6f7b04e6
 
 [sub_resource type="Environment" id="Environment_2yhj6"]
 glow_enabled = true
@@ -133,6 +140,7 @@ process_material = SubResource("ParticleProcessMaterial_cstrq")
 draw_pass_1 = SubResource("QuadMesh_yhc1p")
 
 [node name="Player" parent="." instance=ExtResource("1_buah7")]
+<<<<<<< HEAD
 visible = false
 
 [node name="Enemy44" parent="." instance=ExtResource("2_f43qh")]
@@ -204,3 +212,5 @@ draw_pass_1 = SubResource("QuadMesh_r0535")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="GPUParticles3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.34229, 0, 0.387939)
+=======
+>>>>>>> 7ec17bc4c7cbba98b1981eda2f9a31db6f7b04e6
