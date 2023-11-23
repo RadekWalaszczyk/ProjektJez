@@ -1,5 +1,9 @@
-Timer
+DirectionalLight3D
+GPUParticles3D
+GPUParticles2D
+Node
 Node3D
+Timer
 CollisionShape3D
 RigidBody3D
 MeshInstance3D
@@ -7,7 +11,6 @@ Area3D
 ShapeCast3D
 AudioStreamPlayer2D
 AudioStreamPlayer3D
-Node
 TextureRect
 Camera3D
 CharacterBody3D
