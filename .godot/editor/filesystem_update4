@@ -1,2 +1,8 @@
+<<<<<<< HEAD
 res://Scenes/TestScene.tscn
 res://Shaders/FireShader.tres
+=======
+res://Shaders/FireShader.tres
+res://Scenes/Bertelowa Grota.tscn
+res://Scenes/Grass.tres
+>>>>>>> e617424bd4d2096c0d8722ade73360f68bacaf6a
