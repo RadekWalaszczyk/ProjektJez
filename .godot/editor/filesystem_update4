@@ -1,4 +1,3 @@
-res://Scenes/test_scene.tscn
 res://Shaders/FireShader.tres
-res://VFX/Assets/Shader/Basic_Material2.tres
-res://VFX/Assets/Shader/UV_Scroll.tres
+res://Scenes/Bertelowa Grota.tscn
+res://Scenes/Grass.tres
