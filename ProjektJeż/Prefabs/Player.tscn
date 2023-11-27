@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=3 uid="uid://cjt64ue20a5f1"]
+
+[ext_resource type="Script" path="res://Scripts/PlayerController.gd" id="1_dyoh4"]
+[ext_resource type="Script" path="res://Scripts/CameraController.gd" id="2_rb82a"]
+[ext_resource type="Script" path="res://Scripts/SpellController.gd" id="3_ynroj"]
+[ext_resource type="Script" path="res://Scripts/BeatManager.gd" id="4_58vux"]
+[ext_resource type="Texture2D" uid="uid://gh88pfdp6dlv" path="res://icon.svg" id="4_xoeax"]
+[ext_resource type="AudioStream" uid="uid://bc7ugctiq70x4" path="res://Music/1-Trillion-BPM-_beats-per-minute_-Experiment.mp3" id="5_jstij"]
+[ext_resource type="Script" path="res://Scripts/EnemySpawnerTemp.gd" id="10_sw5ne"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sp17g"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_md0lt"]
+
+[node name="Player" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.66996, 0)
+
+[node name="PlayerController" type="CharacterBody3D" parent="."]
+script = ExtResource("1_dyoh4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerController"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.40155, 0)
+shape = SubResource("CapsuleShape3D_sp17g")
+
+[node name="PlayerBody" type="MeshInstance3D" parent="PlayerController"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+mesh = SubResource("CapsuleMesh_md0lt")
+skeleton = NodePath("")
+
+[node name="CameraController" type="Camera3D" parent="." node_paths=PackedStringArray("PlayerToFollow")]
+transform = Transform3D(1, 0, 0, 0, 0.723895, 0.689911, 0, -0.689911, 0.723895, -0.258678, 9.45822, 5.90488)
+fov = 90.0
+script = ExtResource("2_rb82a")
+PlayerToFollow = NodePath("../PlayerController")
+ZOffset = 10.0
+FollowTime = 5.0
+
+[node name="SpellController" type="Node" parent="." node_paths=PackedStringArray("Beat")]
+script = ExtResource("3_ynroj")
+Beat = NodePath("../BeatManager")
+BeatMargin = 0.25
+
+[node name="DebugBeat" type="TextureRect" parent="SpellController"]
+offset_left = 529.0
+offset_top = 566.0
+offset_right = 657.0
+offset_bottom = 694.0
+texture = ExtResource("4_xoeax")
+
+[node name="BeatManager" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_jstij")
+script = ExtResource("4_58vux")
+bpm = 120
+
+[node name="StartTimer" type="Timer" parent="BeatManager"]
+
+[node name="EnemySpawnerTemp" type="Node3D" parent="."]
+script = ExtResource("10_sw5ne")
+
+[node name="Timer" type="Timer" parent="EnemySpawnerTemp"]
+
+[connection signal="timeout" from="EnemySpawnerTemp/Timer" to="EnemySpawnerTemp" method="_on_timer_timeout"]
