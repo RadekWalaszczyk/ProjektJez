@@ -7,4 +7,4 @@ class_name SpellCombo
 @export_group("Combo effect")
 @export var ComboEffect : PackedScene
 
-enum Spells {UP, RIGHT, DOWN, LEFT}
+enum Spells {None, UP, RIGHT, DOWN, LEFT}
