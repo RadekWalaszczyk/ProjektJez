@@ -4,10 +4,12 @@ extends Node
 @export var Beat : BeatManager
 @export_range(0.1, 0.5) var BeatMargin : float
 
-var allCombos : Array[SpellCombo]
+var allCombosDict = {}
 
 var currCombo : Array[SpellCombo.Spells]
 var currentBeat = 0
+
+var halfSpellCasted : bool = false
 
 func _ready():
 	LoadAllCombos()
@@ -47,6 +49,7 @@ func SpellCaster():
 func ClearCombo():
 	currCombo.clear()
 	UI.SetLastSpells(currCombo)
+	halfSpellCasted = false
 
 func CastSpell(currInput : SpellCombo.Spells, beat : int):
 	#var newSpell = BasicSpells[spell].instantiate()
@@ -59,7 +62,33 @@ func CastSpell(currInput : SpellCombo.Spells, beat : int):
 		currCombo.resize(4)
 		ClearCombo()
 		currCombo.push_front(currInput)
+		
+	# SPRAWDZA SPELLE
+	var comboValue : SpellCombo
+	# 4 - duże combo
+	if currCombo.size() == 4:
+		if allCombosDict.has(currCombo):
+			comboValue = allCombosDict[currCombo]
+			print("Rzuca spella: ", comboValue.ComboSequence)
+	# 3 - pojedyńczy
+	elif currCombo.size() == 3 and !halfSpellCasted:
+		var resizedCombo = currCombo.slice(0, 2)
+		if allCombosDict.has(resizedCombo):
+			comboValue = allCombosDict[resizedCombo]
+			print("Rzuca spella: ", comboValue.ComboSequence)
+			ClearCombo()
+	# 2 lub 4 - pojedyńczy
+	elif currCombo.size() > 1:
+		var resizedCombo = currCombo.slice(0, 2)
+		if allCombosDict.has(resizedCombo):
+			comboValue = allCombosDict[resizedCombo]
+			print("Rzuca spella: ", comboValue.ComboSequence)
+			halfSpellCasted = true
+		
+	print(currCombo.size())
 	UI.SetLastSpells(currCombo)
+	
+	
 
 func LoadAllCombos():
 	var path = "res://Database/ComboSequences/"
@@ -73,7 +102,7 @@ func LoadAllCombos():
 			else:
 				var newFile = load(path + file_name)
 				if newFile is SpellCombo:
-					allCombos.append(newFile)
+					allCombosDict[newFile.ComboSequence] = newFile
 				#print("Found file: " + file_name)
 			file_name = dir.get_next()
 	else:

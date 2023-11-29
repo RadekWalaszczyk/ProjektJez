@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource("1_hh3hw")
-ComboSequence = Array[int]([0, 0, 2, 3])
+ComboSequence = Array[int]([1, 4, 1, 4])

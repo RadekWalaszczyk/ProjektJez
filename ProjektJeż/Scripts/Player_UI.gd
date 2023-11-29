@@ -7,6 +7,6 @@ func SetLastSpells(lastSpells : Array[SpellCombo.Spells]):
 	var string : String
 	for spell in lastSpells:
 		if SpellCombo.Spells.keys()[spell] != "None":
-			string += " " + SpellCombo.Spells.keys()[spell]
+			string = SpellCombo.Spells.keys()[spell] + "   " +  string
 	LastSpells.text = string
 	pass
