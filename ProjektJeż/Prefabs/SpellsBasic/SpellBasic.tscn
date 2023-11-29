@@ -1,16 +1,17 @@
 [gd_scene load_steps=3 format=3 uid="uid://c5wsxgtgqh6m2"]
 
-[ext_resource type="Script" path="res://Scripts/SpellMoving.gd" id="1_4bull"]
-
 [sub_resource type="SphereShape3D" id="SphereShape3D_5t1g2"]
 
-[node name="SpellBasic" type="Node3D" node_paths=PackedStringArray("spellArea")]
+[sub_resource type="SphereMesh" id="SphereMesh_m7rap"]
+
+[node name="SpellBasic" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.66996, 0)
-script = ExtResource("1_4bull")
-spellFindRadius = 50.0
-spellArea = NodePath("FindNearestTarget")
 
 [node name="FindNearestTarget" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FindNearestTarget"]
 shape = SubResource("SphereShape3D_5t1g2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.602926, 0, 0, 0, 0.602926, 0, 0, 0, 0.602926, 0, 0, 0)
+mesh = SubResource("SphereMesh_m7rap")

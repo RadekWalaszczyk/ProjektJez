@@ -52,10 +52,6 @@ func ClearCombo():
 	halfSpellCasted = false
 
 func CastSpell(currInput : SpellCombo.Spells, beat : int):
-	#var newSpell = BasicSpells[spell].instantiate()
-	#get_tree().root.add_child(newSpell)
-	#newSpell.global_position = $"../PlayerController".global_position
-	
 	currentBeat = beat
 	currCombo.push_front(currInput)
 	if currCombo.size() > 4:
@@ -70,25 +66,27 @@ func CastSpell(currInput : SpellCombo.Spells, beat : int):
 		if allCombosDict.has(currCombo):
 			comboValue = allCombosDict[currCombo]
 			print("Rzuca spella: ", comboValue.ComboSequence)
-	# 3 - pojedyńczy
-	elif currCombo.size() == 3 and !halfSpellCasted:
-		var resizedCombo = currCombo.slice(0, 2)
-		if allCombosDict.has(resizedCombo):
-			comboValue = allCombosDict[resizedCombo]
-			print("Rzuca spella: ", comboValue.ComboSequence)
-			ClearCombo()
-	# 2 lub 4 - pojedyńczy
-	elif currCombo.size() > 1:
-		var resizedCombo = currCombo.slice(0, 2)
-		if allCombosDict.has(resizedCombo):
-			comboValue = allCombosDict[resizedCombo]
-			print("Rzuca spella: ", comboValue.ComboSequence)
-			halfSpellCasted = true
+			var newSpell = comboValue.ComboEffect.instantiate()
+			get_tree().root.add_child(newSpell)
+			newSpell.global_position = $"../PlayerController".global_position
+			
+#	# 3 - pojedyńczy
+#	elif currCombo.size() == 3 and !halfSpellCasted:
+#		var resizedCombo = currCombo.slice(0, 2)
+#		if allCombosDict.has(resizedCombo):
+#			comboValue = allCombosDict[resizedCombo]
+#			print("Rzuca spella: ", comboValue.ComboSequence)
+#			ClearCombo()
+#	# 2 lub 4 - pojedyńczy
+#	elif currCombo.size() > 1:
+#		var resizedCombo = currCombo.slice(0, 2)
+#		if allCombosDict.has(resizedCombo):
+#			comboValue = allCombosDict[resizedCombo]
+#			print("Rzuca spella: ", comboValue.ComboSequence)
+#			halfSpellCasted = true
 		
-	print(currCombo.size())
 	UI.SetLastSpells(currCombo)
-	
-	
+
 
 func LoadAllCombos():
 	var path = "res://Database/ComboSequences/"
