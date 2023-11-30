@@ -6,6 +6,7 @@ extends CharacterBody3D
 
 var input : Vector3 = Vector3.ZERO
 
+
 func _physics_process(delta):
 	PlayerMovement(delta)
 
