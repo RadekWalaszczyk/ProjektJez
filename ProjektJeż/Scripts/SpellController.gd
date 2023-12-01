@@ -27,20 +27,17 @@ func SpellCaster():
 			CastSpell(SpellCombo.Spells.UP, beat.x)
 		else:
 			ClearCombo()
-			
-	if Input.is_action_just_pressed("SpellRight"):
+	elif Input.is_action_just_pressed("SpellRight"):
 		if isInBeat:
 			CastSpell(SpellCombo.Spells.RIGHT, beat.x)
 		else:
 			ClearCombo()
-
-	if Input.is_action_just_pressed("SpellDown"):
+	elif Input.is_action_just_pressed("SpellDown"):
 		if isInBeat:
 			CastSpell(SpellCombo.Spells.DOWN, beat.x)
 		else:
 			ClearCombo()
-			
-	if Input.is_action_just_pressed("SpellLeft"):
+	elif Input.is_action_just_pressed("SpellLeft"):
 		if isInBeat:
 			CastSpell(SpellCombo.Spells.LEFT, beat.x)
 		else:

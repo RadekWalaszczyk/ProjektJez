@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cjt64ue20a5f1"]
+[gd_scene load_steps=12 format=3 uid="uid://cjt64ue20a5f1"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerController.gd" id="1_dyoh4"]
 [ext_resource type="Script" path="res://Scripts/CameraController.gd" id="2_rb82a"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/BeatManager.gd" id="4_58vux"]
 [ext_resource type="AudioStream" uid="uid://bc7ugctiq70x4" path="res://Music/1-Trillion-BPM-_beats-per-minute_-Experiment.mp3" id="5_jstij"]
 [ext_resource type="Script" path="res://Scripts/Player_UI.gd" id="6_6dhu8"]
+[ext_resource type="PackedScene" uid="uid://cjy404p0i1tfd" path="res://Components/Base/health_component.tscn" id="8_nhufp"]
 [ext_resource type="Script" path="res://Scripts/EnemySpawnerTemp.gd" id="10_sw5ne"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sp17g"]
@@ -29,6 +30,11 @@ shape = SubResource("CapsuleShape3D_sp17g")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
 mesh = SubResource("CapsuleMesh_md0lt")
 skeleton = NodePath("")
+
+[node name="HealthComponent" parent="PlayerController" instance=ExtResource("8_nhufp")]
+collision_layer = 4
+collision_mask = 2
+maxHealth = 100
 
 [node name="CameraController" type="Camera3D" parent="." node_paths=PackedStringArray("PlayerToFollow")]
 transform = Transform3D(1, 0, 0, 0, 0.723895, 0.689911, 0, -0.689911, 0.723895, -0.258678, 9.45822, 5.90488)

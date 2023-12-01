@@ -1,8 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://b5ssn3iyqlewd"]
+[gd_scene load_steps=15 format=3 uid="uid://b5ssn3iyqlewd"]
 
 [ext_resource type="PackedScene" uid="uid://cjt64ue20a5f1" path="res://Prefabs/Player.tscn" id="1_6na1w"]
 [ext_resource type="Script" path="res://Scripts/GameContoller.gd" id="1_dusl0"]
 [ext_resource type="Script" path="res://Scripts/EnemyBase.gd" id="2_jn3ax"]
+[ext_resource type="PackedScene" uid="uid://cjy404p0i1tfd" path="res://Components/Base/health_component.tscn" id="4_drv4l"]
+[ext_resource type="PackedScene" uid="uid://dnbxie13n6skj" path="res://Components/Base/hit_component.tscn" id="5_0ggy7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_la6ur"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -70,8 +72,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.557448, 0)
 shape = SubResource("CapsuleShape3D_32ngw")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="EnemyBase"]
+avoidance_enabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="EnemyBase"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12286, 0)
 material_override = SubResource("StandardMaterial3D_30kea")
 mesh = SubResource("CapsuleMesh_jhkua")
+
+[node name="HealthComponent" parent="EnemyBase" instance=ExtResource("4_drv4l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.2996, 0, 5.03814)
+collision_layer = 2
+collision_mask = 4
+
+[node name="HitComponent" parent="EnemyBase" instance=ExtResource("5_0ggy7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.132938, -0.243209, -0.525962)
+collision_layer = 2
+collision_mask = 4
+damage = 5

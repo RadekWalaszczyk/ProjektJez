@@ -9,9 +9,11 @@ func _physics_process(delta):
 	if GameGlobal.GameController_Inst == null or GameGlobal.GameController_Inst.Player == null:
 		return
 	
+	var player : Node3D = GameGlobal.GameController_Inst.Player
+	
 	var direction : Vector3
 	
-	nav.target_position = GameGlobal.GameController_Inst.Player.global_position
+	nav.target_position = player.global_position
 	
 	direction = nav.get_next_path_position() - global_position
 	direction = direction.normalized()

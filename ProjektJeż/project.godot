@@ -82,3 +82,4 @@ SpellLeft={
 
 3d_physics/layer_1="Default"
 3d_physics/layer_2="Enemy"
+3d_physics/layer_3="Player"
