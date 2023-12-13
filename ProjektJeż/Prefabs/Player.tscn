@@ -57,43 +57,53 @@ bpm = 120
 
 [node name="StartTimer" type="Timer" parent="BeatManager"]
 
-[node name="UI" type="Control" parent="."]
+[node name="UI" type="Control" parent="." node_paths=PackedStringArray("LastSpells", "HealthBar")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 script = ExtResource("6_6dhu8")
+LastSpells = NodePath("SpellCaster/Label")
+HealthBar = NodePath("HealthBar")
 
-[node name="Panel" type="Panel" parent="UI"]
+[node name="SpellCaster" type="Panel" parent="UI"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -222.0
-offset_top = -77.0
-offset_right = 223.0
-offset_bottom = -15.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Label" type="Label" parent="UI/Panel"]
+[node name="Label" type="Label" parent="UI/SpellCaster"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -222.0
+offset_top = -83.0
 offset_right = 222.0
-offset_bottom = 62.0
+offset_bottom = -21.0
 grow_horizontal = 2
 label_settings = SubResource("LabelSettings_vcd65")
 vertical_alignment = 1
 uppercase = true
+
+[node name="HealthBar" type="ProgressBar" parent="UI"]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 1
+offset_left = 17.0
+offset_top = 15.0
+offset_right = 86.0
+offset_bottom = 80.0
+fill_mode = 3
+show_percentage = false
 
 [node name="EnemySpawnerTemp" type="Node3D" parent="."]
 script = ExtResource("10_sw5ne")
 
 [node name="Timer" type="Timer" parent="EnemySpawnerTemp"]
 
+[connection signal="health_changed" from="PlayerController/HealthComponent" to="UI" method="_on_health_component_health_changed"]
 [connection signal="timeout" from="EnemySpawnerTemp/Timer" to="EnemySpawnerTemp" method="_on_timer_timeout"]

@@ -9,6 +9,7 @@ signal death()
 
 func _ready():
 	health = maxHealth
+	health_changed.emit(health, health)
 
 func GetDamage(damage : int):
 	health_changed.emit(health, health - damage)
