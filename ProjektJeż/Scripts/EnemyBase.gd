@@ -6,10 +6,7 @@ extends CharacterBody3D
 @onready var nav = $NavigationAgent3D
 
 func _physics_process(delta):
-	if GameGlobal.GameController_Inst == null or GameGlobal.GameController_Inst.Player == null:
-		return
-	
-	var player : Node3D = GameGlobal.GameController_Inst.Player
+	var player : Node3D = GlobalGameController.Player
 	
 	var direction : Vector3
 	

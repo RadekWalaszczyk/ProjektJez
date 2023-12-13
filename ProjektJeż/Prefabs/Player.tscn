@@ -60,8 +60,8 @@ bpm = 120
 [node name="UI" type="Control" parent="." node_paths=PackedStringArray("LastSpells", "HealthBar")]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 script = ExtResource("6_6dhu8")
 LastSpells = NodePath("SpellCaster/Label")
 HealthBar = NodePath("HealthBar")

@@ -51,3 +51,4 @@ material_override = SubResource("StandardMaterial3D_nxdhb")
 mesh = SubResource("PlaneMesh_bpps4")
 
 [node name="EnemyBase" parent="." instance=ExtResource("3_ewbyx")]
+accel = null
