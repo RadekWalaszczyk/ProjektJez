@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="SpellCombo" load_steps=3 format=3 uid="uid://depn52ejkod78"]
-
-[ext_resource type="PackedScene" uid="uid://c5wsxgtgqh6m2" path="res://Prefabs/SpellsBasic/SpellBasic.tscn" id="1_2hglf"]
-[ext_resource type="Script" path="res://Scripts/SpellCombo.gd" id="1_hh3hw"]
-
-[resource]
-script = ExtResource("1_hh3hw")
-ComboSequence = Array[int]([1, 4, 1, 4])
-ComboEffect = ExtResource("1_2hglf")
