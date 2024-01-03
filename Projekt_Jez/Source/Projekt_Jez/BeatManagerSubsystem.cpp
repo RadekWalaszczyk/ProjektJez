@@ -2,8 +2,12 @@
 
 
 #include "BeatManagerSubsystem.h"
+#include <LevelSequencePlayer.h>
 
 void UBeatManagerSubsystem::Initialize(FSubsystemCollectionBase& Collection)
 {
 
 }
+
+
+
