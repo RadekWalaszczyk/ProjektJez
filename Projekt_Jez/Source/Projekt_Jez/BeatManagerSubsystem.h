@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "Subsystems/GameInstanceSubsystem.h"
-#include "MovieSceneSequencePlayer.h"
 #include <LevelSequencePlayer.h>
 #include "MovieSceneSequencePlayer.h"
 #include "BeatManagerSubsystem.generated.h"
@@ -40,6 +39,12 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void PickSong();
 
+	UFUNCTION(BlueprintCallable)
+	void StartSong();
+
+	UFUNCTION(BlueprintCallable)
+	void TryCastSpell(bool& castSuccessful);
+
 public:
 	/** Please add a variable description */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Songs")
@@ -49,7 +54,10 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "Settings")
 	int32 BeatMargin;
 
+private:
 	/** SequencePLayer as actor in world */
 	ULevelSequencePlayer* CurrentLevelSequencePlayer;
+	int32 CurrentBPM;
+	int32 CurrentBeatOffset;
 };
 
