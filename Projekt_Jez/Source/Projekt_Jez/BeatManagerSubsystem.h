@@ -42,6 +42,7 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void StartSong();
 
+	/** Checking if casted spell was in beat, return true if it was */
 	UFUNCTION(BlueprintCallable)
 	void TryCastSpell(bool& castSuccessful);
 
@@ -61,5 +62,6 @@ public:
 private:
 	int32 CurrentBPM;
 	int32 CurrentBeatOffset;
+	int32 LastPressedBeat;
 };
 
