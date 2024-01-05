@@ -37,7 +37,7 @@ public:
 	virtual void Initialize(FSubsystemCollectionBase& Collection) override;
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
-	void PickSong();
+	int32 CheckLevelSequence();
 
 	UFUNCTION(BlueprintCallable)
 	void StartSong();
@@ -54,9 +54,11 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "Settings")
 	int32 BeatMargin;
 
-private:
 	/** SequencePLayer as actor in world */
+	UPROPERTY(BlueprintReadOnly)
 	ULevelSequencePlayer* CurrentLevelSequencePlayer;
+
+private:
 	int32 CurrentBPM;
 	int32 CurrentBeatOffset;
 };

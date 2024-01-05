@@ -23,7 +23,7 @@ void UBeatManagerSubsystem::StartSong()
         CurrentLevelSequencePlayer = ULevelSequencePlayer::CreateLevelSequencePlayer(GetWorld(), Songs[randomSongIndex].SongSequence, settings, actorOut);
         CurrentBPM = Songs[randomSongIndex].BPM;
         CurrentBeatOffset = Songs[randomSongIndex].BeatOffset;
-        
+
         UE_LOG(LogTemp, Warning, TEXT("Start playing song"));
     }
     else
@@ -34,7 +34,12 @@ void UBeatManagerSubsystem::StartSong()
 
 void UBeatManagerSubsystem::TryCastSpell(bool& castSuccessful)
 {
-    castSuccessful = true;
+    int32 framesPerBeat = 60 / (CurrentBPM / 60);
+    int32 pressedFrame = CheckLevelSequence();
+    if (pressedFrame % framesPerBeat < BeatMargin || framesPerBeat - (pressedFrame % framesPerBeat) < BeatMargin)
+        castSuccessful = true;
+    else
+        castSuccessful = false;
 }
 
 
