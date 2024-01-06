@@ -8,7 +8,7 @@
 
 void UBeatManagerSubsystem::Initialize(FSubsystemCollectionBase& Collection)
 {
-
+    UE_LOG(LogTemp, Warning, TEXT("Initialize"));
 }
 
 void UBeatManagerSubsystem::StartSong()
