@@ -7,7 +7,7 @@
 #include "ComboMoveDataAsset.generated.h"
 
 /** Enum of every possible move in combo system */
-UENUM(BlueprintType)
+UENUM(BlueprintType, Blueprintable)
 enum class ESpellMove : uint8
 {
     VE_Up       UMETA(DisplayName = "Up"),

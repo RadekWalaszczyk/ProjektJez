@@ -10,7 +10,7 @@
 /**
  * 
  */
-UCLASS(BlueprintType)
+UCLASS(BlueprintType, Blueprintable)
 class PROJEKT_JEZ_API USpellDataAsset : public UPrimaryDataAsset
 {
 	GENERATED_BODY()
