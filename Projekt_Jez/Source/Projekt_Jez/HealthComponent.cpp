@@ -7,8 +7,6 @@
 UHealthComponent::UHealthComponent()
 {
 	PrimaryComponentTick.bCanEverTick = false;
-
-	Health = MaxHealth;
 }
 
 
@@ -16,6 +14,9 @@ UHealthComponent::UHealthComponent()
 void UHealthComponent::BeginPlay()
 {
 	Super::BeginPlay();
+
+	Health = MaxHealth;
+	OnHealthChanged.Broadcast();
 }
 
 
@@ -25,10 +26,14 @@ void UHealthComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActo
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 }
 
+/** Deal damage to component owner */
 void UHealthComponent::Damage(int32 damage)
 {
 	Health -= damage;
 	Health = FMath::Clamp(Health, 0, MaxHealth);
+
+	OnHealthChanged.Broadcast();
+
 	if (Health <= 0)
 	{
 		OnDead.Broadcast();

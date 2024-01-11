@@ -8,6 +8,7 @@
 
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnDead);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnHealthChanged);
 
 UCLASS(Blueprintable, ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class PROJEKT_JEZ_API UHealthComponent : public UActorComponent
@@ -26,15 +27,21 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-	UPROPERTY(BlueprintAssignable, Category = "Events")
-	FOnDead OnDead;
-
-	UFUNCTION(BlueprintCallable)
-	void Damage(int32 damage);
-
 	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "Health")
 	int32 MaxHealth;
 
 	UPROPERTY(BlueprintReadOnly, Category = "Health")
 	int32 Health;
+
+public:
+	UFUNCTION(BlueprintCallable)
+	void Damage(int32 damage);
+
+	/* On Dead event */
+	UPROPERTY(BlueprintAssignable, Category = "Events")
+	FOnDead OnDead;	
+	
+	/* On Health Changed event */
+	UPROPERTY(BlueprintAssignable, Category = "Events")
+	FOnHealthChanged OnHealthChanged;
 };

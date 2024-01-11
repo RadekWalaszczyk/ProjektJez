@@ -32,7 +32,6 @@ void UBeatManagerSubsystem::StartSong()
     }
 }
 
-//
 void UBeatManagerSubsystem::TryCastSpell(bool& castSuccessful)
 {
     int32 framesPerBeat = 60 / (CurrentBPM / 60);
