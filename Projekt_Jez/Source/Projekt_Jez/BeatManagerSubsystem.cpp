@@ -34,6 +34,12 @@ void UBeatManagerSubsystem::StartSong()
 
 void UBeatManagerSubsystem::TryCastSpell(bool& castSuccessful)
 {
+    if (IsValid(CurrentLevelSequencePlayer) == false)
+    {
+        castSuccessful = false;
+        return;
+    }
+
     int32 framesPerBeat = 60 / (CurrentBPM / 60);
     int32 pressedFrame = CheckLevelSequence();
     int32 calcualtedModulo = pressedFrame % framesPerBeat;
